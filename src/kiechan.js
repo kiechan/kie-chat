@@ -34,7 +34,7 @@ const app = new Vue({
         isUserMessage: true
       })
       callKoume(app.userMessage).then((messages) => {
-        app.messages.push(messages)
+        app.messages = app.messages.concat(messages)
         app.userMessage = ''
         scrollToBottom()
       }).catch(err => {
@@ -64,11 +64,11 @@ const callKoume = (userMessage) => {
         talkContent: userMessage
       }
     }).done(data => {
-      const contents = data.talkResponse
+      const contents = data.talkResponse.messages
       const messages = contents.map(c => {
         return {
-          message: 'aaaa',
-          url: '',
+          message: c.words,
+          url: c.url,
           isUserMessage: false
         }
       })
