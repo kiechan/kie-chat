@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>キーちゃん</title>
+
+  <link rel="stylesheet" href="css/pc_chatset.css">
+
+</head>
+
+<body>
+
+  <div id="kie-chat">
+
+    <div id="scroll-area">
+
+      <header class="titleheader">
+        <img src="./img/kie-chan-top.jpeg">
+      </header>
+
+      <section class="container" id="chatbody" style="width:100%;">
+        <div v-for="m in messages">
+          <div class="mycomment" v-if="m.isUserMessage">
+            <p>{{ m.message }}</p>
+          </div>
+          <div class="balloon6" v-if="!m.isUserMessage">
+            <div class="faceicon">
+              <img src="./img/kie-chan.jpg">
+            </div>
+            <div class="chatting">
+              <div class="says">
+                <p>{{ m.message }}</p>
+                <p><a v-bind:href="m.url" target="_blank">{{ m.url }}</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      <input type="text" class="textinput" v-model="userMessage">
+      <input type="button" value="送信" @click="sendMessage">
+    </footer>
+
+  </div>
+
+  <script src="js/index.bundle.js"></script>
+
+</body>
+
+</html>

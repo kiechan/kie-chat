@@ -1,0 +1,132 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff8e1;
+}
+
+* {
+  font-size: 12px;
+  outline: none;
+}
+
+#kie-chat {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    overflow: scroll;
+}
+
+section {
+    margin-bottom: 45px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+footer input[type="text"] {
+  width: calc(100% - 78px);
+  border: 0px;
+  padding: 10px;
+  font-size: 16px;
+  border-top: 1px solid #F2CF01;
+  padding: 10px 8px;
+}
+footer input[type="button"] {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  border: 0px;
+  border-left: 1px solid #F2CF01;
+  font-size: 16px;
+  padding: 7px 16px 8px 16px;
+  background-color: #F2CF01;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.titleheader {
+  padding: 0px;
+  width:100%;
+  background: #F2CF01;
+}
+.titleheader img {
+  display: block;
+  width: 100%;
+}
+
+/* キーちゃんのコメント */
+.balloon6 {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.balloon6 .faceicon {
+    float: left;
+    margin-right: -50px;
+    width: 40px;
+}
+.balloon6 .faceicon img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.balloon6 .chatting {
+    width: 100%;
+    text-align: left;
+}
+.says {
+    display: inline-block;
+    position: relative; 
+    margin: 0 0 0 50px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 8px;
+    background: #F2CF01;
+}
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px; 
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #F2CF01;
+    -ms-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+.says p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 自分のコメント */
+.mycomment {
+    margin: 10px 13px;
+    text-align: right;
+}
+.mycomment p{
+    display: inline-block;
+    position: relative; 
+    margin: 0 10px 0 0;
+    padding: 8px 12px;
+    max-width: 250px;
+    border-radius: 8px;
+    background: #4fc3f7;
+}
+
+.mycomment p:after {
+    content: "";
+    position: absolute;
+    top: 3px; 
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #4fc3f7;
+    -ms-transform: rotate(-35deg);
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
