@@ -1,0 +1,105 @@
+body {
+  border: solid black 1px;
+  width: 100vw;
+  height: 100vh;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.balloon1-left {
+  position: relative;
+  display: inline-block;
+  margin: 2vh 0 0 1vw;
+  padding: 7px 10px;
+  min-width: 30%;
+  max-width: 80%;
+  min-height: 35px;
+  color: #222;
+  background: #F2CF01;
+  border-radius: 15px;
+}
+
+.balloon1-left:before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -6vw;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #F2CF01;
+}
+
+.balloon1-left p {
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+  font-size: 10px;
+  text-align:left;
+}
+
+.balloon1-right {
+  position: relative;
+  display: inline-block;
+  margin: 2vh 1vw 0 0;
+  padding: 7px 10px;
+  min-width: 30px;
+  max-width: 70%;
+  min-height: 35px;
+  color: #222;
+  background: #65ACE4;
+  border-radius: 15px;
+  float: right;
+}
+
+.balloon1-right:before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 96%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #65ACE4;
+}
+
+.balloon1-right p {
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+  text-align:left;
+  font-size: 10px;
+}
+
+.wrapper {
+  border: black 1px solid;
+  width: 400px;
+  height: 700px;
+  margin: 100px auto;
+}
+
+.titleheader {
+  width:100%;
+  background: #F2CF01;
+  padding-top: 10px;
+}
+
+.titleheader p {
+  text-align:center;
+  color: blue;
+  font-size:30px;
+  margin: auto;
+}
+
+.textinput {
+  position: absolute;
+  top: 95%;
+  width: 82%;
+}
+
+.btninput {
+  position: absolute;
+  top: 94%;
+}
+
+.bodydiv {
+  position: relative;
+}

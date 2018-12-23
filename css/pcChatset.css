@@ -9,10 +9,10 @@ body {
 .balloon1-left {
   position: relative;
   display: inline-block;
-  margin: 15px 0 0 15px;
+  margin: 3vh 0 0 1vw;
   padding: 7px 10px;
-  min-width: 30%;
-  max-width: 70%;
+  min-width: 30px;
+  max-width: 80%;
   color: #222;
   background: #F2CF01;
   border-radius: 15px;
@@ -22,7 +22,7 @@ body {
   content: "";
   position: absolute;
   top: 50%;
-  left: -5%;
+  left: -1.6vw;
   margin-top: -15px;
   border: 15px solid transparent;
   border-right: 15px solid #F2CF01;
@@ -31,7 +31,6 @@ body {
 .balloon1-left p {
   margin: 0;
   padding: 0;
-  padding-left: 10px;
   font-size: 16px;
   text-align:left;
 }
@@ -39,9 +38,9 @@ body {
 .balloon1-right {
   position: relative;
   display: inline-block;
-  margin: 15px 10px 0 0;
+  margin: 3vh 1vw 0 0;
   padding: 7px 10px;
-  min-width: 300px;
+  min-width: 30px;
   max-width: 70%;
   color: #222;
   background: #65ACE4;
@@ -62,7 +61,6 @@ body {
 .balloon1-right p {
   margin: 0;
   padding: 0;
-  padding-left: 10px;
   text-align:left;
   font-size: 16px;
 }
@@ -88,12 +86,15 @@ body {
 }
 
 .textinput {
-  position:absolute;
-  top: 775px;
+  position: absolute;
+  top: 96%;
+  width: 43%;
 }
 
-.textinput input {
-  width:350px;
+.btninput {
+  position: absolute;
+  top: 95%;
+  right;
 }
 
 .bodydiv {

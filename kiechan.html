@@ -9,7 +9,10 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- キーちゃん独自表示CSS -->
-    <link href="css/chatset.css" rel="stylesheet">
+    <!-- デバイスサイズ640px以下 -->
+    <link media="only screen and (max-device-width:640px)" href="css/smartphoneChatset.css" rel="stylesheet" />
+    <!-- デバイスサイズ641px以上 -->
+    <link media="screen and (min-device-width:641px)" href="css/pcChatset.css" rel="stylesheet" />
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
@@ -47,9 +50,9 @@
     <!-- ヘッダー -->
     <footer style="margin-top: 2%; width: 100%;" class="container">
       <!-- 質問入力テキスト -->
-      <input type="text" name="input" id="input" value="ああああ" style="width: 92%;">
+      <input type="text" name="input" id="input" value="ああああ" class="textinput" />
       <!-- 質問送信ボタン -->
-      <button type="button" name="trans" id="trans" class="btn btn-success">送信</button>
+      <button type="button" name="trans" id="trans" class="btn btn-success btninput" />送信</button>
     </footer>
 
     <!-- コルのサンプル

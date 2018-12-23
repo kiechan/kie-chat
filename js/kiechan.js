@@ -2,7 +2,7 @@
 var ques = 0; // 質問の段階判断用変数(0:開始,1:地域質問受付フェイズ,2:分類質問受付フェイズ,3:感謝フェイズ)
 var inputVal = ""; // 入力文言格納変数
 
-var koume = 'http://localhost:3000/koume';
+var koume = 'http://localhost:3000/koume'; // koume(質問受け取りAPI)接続URL
 
 $(function() {
   $('#trans').on('click',function() {
@@ -12,7 +12,6 @@ $(function() {
 
 /**
  * 入力した文言を出力し応答する関数
- * @param quesNUm 現愛の質問フェイズ変数
  */
 function question() {
   switch(ques) {
