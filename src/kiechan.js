@@ -9,7 +9,7 @@ const app = new Vue({
     userMessage: '',
     messages: [{
       message: 'こんにちは、キーちゃんだッピ',
-      url: 'https://google.com/',
+      url: null,
       isUserMessage: false
     },
     {
@@ -33,21 +33,49 @@ const app = new Vue({
         url: null,
         isUserMessage: true
       })
-      callKoume(app.userMessage).then((messages) => {
+      const message = app.userMessage
+      app.userMessage = ''
+      callKoume(message).then((messages) => {
+        if (messages == null) {
+          escapeSilence()
+          scrollToBottom()
+          return
+        }
         app.messages = app.messages.concat(messages)
-        app.userMessage = ''
         scrollToBottom()
       }).catch(err => {
-        app.messages.push({
-          message: '今は頭が働かないッピ',
-          url: null,
-          isUserMessage: false
-        })
+        escapeError()
         scrollToBottom()
       })
     }
   }
 })
+
+const escapeSilence = () => {
+  app.messages.push({
+    message: 'データが見つからなかったッピ！',
+    url: null,
+    isUserMessage: false
+  }),
+  app.messages.push({
+    message: '他に知りたい何が知りたいッピ？',
+    url: null,
+    isUserMessage: false
+  })
+}
+
+const escapeError = () => {
+  app.messages.push({
+    message: '今は頭が働かないッピ',
+    url: null,
+    isUserMessage: false
+  })
+  app.messages.push({
+    message: '少し待ってからもう一回話しかけてくれッピ',
+    url: null,
+    isUserMessage: false
+  })
+}
 
 const scrollToBottom = () => {
   $('#kie-chat').delay(100).animate({
@@ -64,6 +92,10 @@ const callKoume = (userMessage) => {
         talkContent: userMessage
       }
     }).done(data => {
+      if (!data.talkResponse) {
+        resolve()
+        return
+      }
       const contents = data.talkResponse.messages
       const messages = contents.map(c => {
         return {
