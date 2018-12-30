@@ -20,7 +20,9 @@ const app = new Vue({
     talkId: 0,
     sessionInfo: {
       areaCode: 0,
-      categoryCode: 0
+      categoryCode: 0,
+      areaName: '',
+      categoryName: ''
     }
   },
   methods: {
@@ -80,7 +82,7 @@ const escapeError = () => {
 const scrollToBottom = () => {
   $('#kie-chat').delay(100).animate({
     scrollTop: $('#scroll-area').height()
-  },300)
+  }, 300)
 }
 
 const callKoume = (userMessage) => {
@@ -110,3 +112,7 @@ const callKoume = (userMessage) => {
     })
   })
 }
+
+$(window).on('load', () => {
+  $('#textinput').focus()
+})

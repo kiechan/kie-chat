@@ -44,7 +44,7 @@
     </div>
 
     <footer>
-      <input type="text" class="textinput" v-model="userMessage">
+      <input type="text" id="textinput" class="textinput" v-model="userMessage" @keydown.13="sendMessage">
       <input type="button" value="送信" @click="sendMessage">
     </footer>
 
