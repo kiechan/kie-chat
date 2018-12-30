@@ -19,10 +19,8 @@ const app = new Vue({
     }],
     talkId: 0,
     sessionInfo: {
-      areaCode: 0,
-      categoryCode: 0,
-      areaName: '',
-      categoryName: ''
+      areaArray: [],
+      keywordArray: []
     }
   },
   methods: {
@@ -35,16 +33,37 @@ const app = new Vue({
         url: null,
         isUserMessage: true
       })
-      const message = app.userMessage
+      let message = app.userMessage
       app.userMessage = ''
-      callKoume(message).then((messages) => {
+      if (app.sessionInfo.areaArray.length !== 0) {
+        let baseMessage = ''
+        app.sessionInfo.areaArray.map(area => {
+          baseMessage = baseMessage + area
+        })
+        message = baseMessage + 'の' + message
+      }
+      if (app.sessionInfo.keywordArray.length === 1) {
+        let baseMessage = app.sessionInfo.keywordArray[0]
+        message = baseMessage + 'の' + message
+      }
+      callKoume(message).then((data) => {
+        const messages = data.messages
         if (messages == null) {
           escapeSilence()
           scrollToBottom()
           return
         }
+        if (data.status === 0) {
+          app.sessionInfo.areaArray = data.tempAreaArray
+          app.sessionInfo.keywordArray = data.tempKeywordArray
+        } else {
+          app.sessionInfo.areaArray = []
+          app.sessionInfo.keywordArray = []
+        }
         app.messages = app.messages.concat(messages)
         scrollToBottom()
+        console.log(app.sessionInfo.areaArray)
+        console.log(app.sessionInfo.keywordArray)
       }).catch(err => {
         escapeError()
         scrollToBottom()
@@ -98,6 +117,7 @@ const callKoume = (userMessage) => {
         resolve()
         return
       }
+      console.log(data)
       const contents = data.talkResponse.messages
       const messages = contents.map(c => {
         return {
@@ -106,7 +126,13 @@ const callKoume = (userMessage) => {
           isUserMessage: false
         }
       })
-      resolve(messages)
+      console.log(data)
+      resolve({
+        status: data.talkResponse.status,
+        tempAreaArray: data.talkResponse.areaArray,
+        tempKeywordArray: data.talkResponse.keywordArray,
+        messages: messages
+      })
     }).fail(err => {
       reject(err)
     })
