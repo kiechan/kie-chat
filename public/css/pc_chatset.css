@@ -33,6 +33,7 @@ footer input[type="text"] {
   padding: 10px;
   font-size: 16px;
   border-top: 1px solid #F2CF01;
+  border-bottom: 1px solid #F2CF01;
   padding: 10px 8px;
 }
 footer input[type="button"] {
@@ -42,6 +43,7 @@ footer input[type="button"] {
   border: 0px;
   border-left: 1px solid #F2CF01;
   font-size: 16px;
+  height: 40px;
   padding: 7px 16px 8px 16px;
   background-color: #F2CF01;
   color: #ffffff;
