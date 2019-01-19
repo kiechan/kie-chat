@@ -35,17 +35,21 @@ const app = new Vue({
       })
       let message = app.userMessage
       app.userMessage = ''
-      if (app.sessionInfo.areaArray.length !== 0) {
-        let baseMessage = ''
-        app.sessionInfo.areaArray.map(area => {
-          baseMessage = baseMessage + area
-        })
-        message = baseMessage + 'の' + message
+
+      if (app.sessionInfo != null && app.sessionInfo.keywordArray != null) {
+        if (app.sessionInfo.areaArray.length !== 0) {
+          let baseMessage = ''
+          app.sessionInfo.areaArray.map(area => {
+            baseMessage = baseMessage + area
+          })
+          message = baseMessage + 'の' + message
+        }
+        if (app.sessionInfo.keywordArray.length === 1) {
+          let baseMessage = app.sessionInfo.keywordArray[0]
+          message = baseMessage + 'の' + message
+        }
       }
-      if (app.sessionInfo.keywordArray.length === 1) {
-        let baseMessage = app.sessionInfo.keywordArray[0]
-        message = baseMessage + 'の' + message
-      }
+
       callKoume(message).then((data) => {
         const messages = data.messages
         if (messages == null) {
@@ -78,11 +82,11 @@ const escapeSilence = () => {
     url: null,
     isUserMessage: false
   }),
-  app.messages.push({
-    message: '他に知りたい何が知りたいッピ？',
-    url: null,
-    isUserMessage: false
-  })
+    app.messages.push({
+      message: '他に知りたい何が知りたいッピ？',
+      url: null,
+      isUserMessage: false
+    })
 }
 
 const escapeError = () => {
